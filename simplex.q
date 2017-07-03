@@ -8,7 +8,7 @@ matrixI:{"f"$x=/:x:til x};
 matrixDiag:{x*'matrixI count x};
 
 // Construct a simplex tableau using standard form ({@code A}, {@code b}, {@code c}) parameters
-tableau :{[A;b;c]   tableau1[A;b;c;1b]};
+tableau :{[A;b;c]   tableau1[A;b;c;count[A]#1b]};
 tableau1:{[A;b;c;LG](A,'matrixDiag[LG],'b),enlist[c,(1+n:count A)#0f]};
 // Check if a simplex solution is optimal
 optimal:{[T]all 0<=last T};
