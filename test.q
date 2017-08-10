@@ -79,7 +79,7 @@ X:
     .simplex.GreaterEq[  2   2; 4]
     .simplex.LessEq   [  2   2;10]
     .simplex.Maximize [1%30 15; 0]
-;assertAnswer[1e-6;X;`obj`X!(1%3.;0 5.)]
+;assertAnswer[1e-12;X;`obj`X!(1%3.;0 5.)]
 
 .simplex.Optimize
     .simplex.GreaterEq[1 4; 6]
@@ -93,7 +93,7 @@ X:
     .simplex.GreaterEq[3 2;3]
     .simplex.GreaterEq[1 2;4]
     .simplex.Minimize [2 5;0]
-;assertAnswer[1e-5;X;`obj`X!(8.;4 0.)]
+;assertAnswer[1e-11;X;`obj`X!(8.;4 0.)]
 
 ///////////////////////////////////////////////////////////////////////////////
 //@see http://college.cengage.com/mathematics/larson/elementary_linear/4e/shared/downloads/c09s2.pdf
@@ -157,14 +157,14 @@ X:
     .simplex.GreaterEq[ 2  9;36]       /nutrition B
     .simplex.GreaterEq[ 2  1;12]       /nutrition A
     .simplex.Minimize [25 20; 0]       /cost
-;assertAnswer[1e-5;X;`obj`X!(195.;3 6.)]
+;assertAnswer[1e-15;X;`obj`X!(195.;3 6.)]
 
 X:
  .simplex.Optimize
     .simplex.Eq       [ 1   1  ; 1]     /proportion
     .simplex.GreaterEq[80  92  ;90]     /octane rating
     .simplex.Minimize [ .83 .98; 0]     /cost
-;assertAnswer[1e-5;X;`obj`X!(.955;1 5%6.)]
+;assertAnswer[1e-10;X;`obj`X!(.955;1 5%6.)]
 
 ///////////////////////////////////////////////////////////////////////////////
 //@see http://college.cengage.com/mathematics/larson/elementary_linear/4e/shared/downloads/c09s3.pdf
@@ -245,7 +245,7 @@ X:
     .simplex.GreaterEq[12   6  ; 36]    /vitamin A
     .simplex.GreaterEq[60  60  ;300]    /calories
     .simplex.Minimize [ .12 .15;  0]    /cost
-;assertAnswer[1e-3;X;`obj`X!(.66;3 2.)]
+;assertAnswer[1e-9;X;`obj`X!(.66;3 2.)]
 
 ///////////////////////////////////////////////////////////////////////////////
 //@see http://college.cengage.com/mathematics/larson/elementary_linear/4e/shared/downloads/c09s5.pdf
@@ -271,7 +271,7 @@ X:
     .simplex.GreaterEq[3 1 5; 4]
     .simplex.LessEq   [2 3 4;14]
     .simplex.Minimize [4 2 1; 0]
-;assertAnswer[1e-5;X;`obj`X!(2.;0 0 2.)]
+;assertAnswer[1e-11;X;`obj`X!(2.;0 0 2.)]
 
 X:
  .simplex.Optimize
@@ -373,7 +373,7 @@ X:
     .simplex.GreaterEq[3  9  6;30]
     .simplex.GreaterEq[2  4  6;24]
     .simplex.Minimize [7 15 20; 0]
-;assertAnswer[1e-5;X;`obj`X!(82.;6 0 2.)]
+;assertAnswer[1e-15;X;`obj`X!(82.;6 0 2.)]
 
 ///////////////////////////////////////////////////////////////////////////////
 //@see https://stackoverflow.com/questions/3956950/c-c-implementation-of-simplex-method
@@ -420,7 +420,7 @@ X:
     .simplex.GreaterEq[ 1  2  ;4]
     .simplex.LessEq   [ 1  1  ;7]
     .simplex.Maximize [-.4 3.2;0]
-;assertAnswer[1e-6;X;`obj`X!(18.8;1 6.)]
+;assertAnswer[1e-15;X;`obj`X!(18.8;1 6.)]
 
 X:
  .simplex.Optimize
@@ -429,7 +429,7 @@ X:
     .simplex.GreaterEq[ 1  2  ;4]
     .simplex.LessEq   [ 1  1  ;7]
     .simplex.Minimize [-.4 3.2;0]
-;assertAnswer[1e-6;X;`obj`X!(-2.;5 0.)]
+;assertAnswer[1e-15;X;`obj`X!(-2.;5 0.)]
 
 X:
  .simplex.Optimize
@@ -437,7 +437,7 @@ X:
     .simplex.GreaterEq[ 0   1  ;3e6  ]  /gallons of fuel oil
     .simplex.GreaterEq[ 1  -2  ;0    ]
     .simplex.Maximize [ 1.9 1.5;0    ]
-;assertAnswer[1e-1;X;`obj`X!(16.96e6;6.4e6 3.2e6)]
+;assertAnswer[1e-15;X;`obj`X!(16.96e6;6.4e6 3.2e6)]
 
 ///////////////////////////////////////////////////////////////////////////////
 //@see http://www.purplemath.com/modules/linprog3.htm
@@ -475,7 +475,7 @@ X:
     .simplex.GreaterEq[12 12 ;36]   /carbohydrates
     .simplex.GreaterEq[ 8 12 ;24]   /fat
     .simplex.Minimize [ .2 .3; 0]
-;assertAnswer[1e-5;X;`obj`X!(.6;3 0.)]
+;assertAnswer[1e-11;X;`obj`X!(.6;3 0.)]
 
 X:
  .simplex.Optimize
@@ -483,7 +483,7 @@ X:
     .simplex.LessEq   [0   0   1  ; 2000]   /high-risk account
     .simplex.LessEq   [1   1   1  ;12000]   /basis
     .simplex.Maximize [.07 .08 .12;    0]
-;assertAnswer[1e-3;X;`obj`X!(965.;7500 2500 2000.)]
+;assertAnswer[1e-8;X;`obj`X!(965.;7500 2500 2000.)]
 
 ///////////////////////////////////////////////////////////////////////////////
 //@see http://www.purplemath.com/modules/linprog5.htm

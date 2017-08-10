@@ -16,8 +16,10 @@ matrixI:{"f"$x=/:x:til x};
 / Construct a diagonal matrix whose diagonal is vector {@code x}
 matrixDiag:{x*'matrixI count x};
 
-/ Large constant {@literal M} in the Big M extension of Simplex method
-M:1e9;
+/ Vector 2-norm
+vectorNorm:{sqrt sum x*x:x where not 0w=abs x};
+/ Matrix 2-norm
+matrixNorm:{sqrt sum(sum')x*x:x@'(where')not 0w=abs x};
 
 / Set optimization objective
 / @param coeff (FloatList) Coefficients in the objective function
@@ -49,7 +51,7 @@ GreaterEq:{[coeff;rhs;Q]
     @[ ;`A;,  ;enlist 1.*coeff,((count[Q`c]-count[coeff])#0),-1 1]
     @[ ;`A;,\:;0 0.]
     @[ ;`b;,  ;1.*rhs]
-    @[Q;`c;,  ;0.,M*$[Q`max;1.;-1.]]
+    @[Q;`c;,  ;0.,0w*$[Q`max;1.;-1.]]
     };
     
 / Add an equality constraint
@@ -58,7 +60,7 @@ Eq:{[coeff;rhs;Q]
     @[ ;`A;,  ;enlist 1.*coeff,((count[Q`c]-count[coeff])#0),1]
     @[ ;`A;,\:;0.]
     @[ ;`b;,  ;1.*rhs]
-    @[Q;`c;,  ;M*$[Q`max;1.;-1.]]
+    @[Q;`c;,  ;0w*$[Q`max;1.;-1.]]
     };
     
 / Solve the LP problem using Simplex (Big M) method
@@ -77,7 +79,10 @@ MakeTableau:{[Q]tableau .@[Q;`c;*;$[Q`max;1.;-1.]]`A`b`c`r};
 tableau:{[A;b;c;r](A,'b),enlist c,r};
 
 / Remove {@literal M} from the bottom row of a Simplex tableau (Big M method)
-removeM:{[T](-1_T),enlist sum each flip enlist[last T],neg M*T(first where@)each 1=flip T[;k:where last[T]=M]};
+removeM:{[T]
+    M:1000*ceiling .001*max(.simplex.matrixNorm -1_/:-1_T;.simplex.vectorNorm last'[T]);
+    (-1_T),enlist sum each flip enlist[last T],neg M*T(first where@)each 1=flip T[;k:where 0w=last T]
+    };
 
 / Identify basic variables from the current Simplex tableau
 //basicVar:{[T] -1+sum each k where 1=sum each 0<k:((1+til count t 0)*/:(0<>t))*\:(1=sum each flip 0<>t:-1_/:T)};
