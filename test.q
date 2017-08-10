@@ -495,3 +495,14 @@ X:
     .simplex.Eq      [1  1  0  0  ;50]  /customer A
     .simplex.Minimize[.5 .4 .6 .55; 0]
 ;assertAnswer[1e-15;X;`obj`X!(62.5;5 45 70 0.)]
+
+///////////////////////////////////////////////////////////////////////////////
+//@see https://www.zweigmedia.com/RealWorld/simplex.html
+//     (interactive solver)
+X:
+ .simplex.Optimize
+    .simplex.GreaterEq[3 1;4]
+    .simplex.LessEq   [1 1;2]
+    .simplex.Maximize [1 1;0]
+;assertAnswer[1e-15;X;`obj`X!(2.;1 1.)]
+
