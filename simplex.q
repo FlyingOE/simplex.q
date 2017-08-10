@@ -93,7 +93,7 @@ enterVar:{[T]first iasc -1_last T};
 
 / Identify leaving variable (Simplex method)
 / @param pc (Long) The entering variable
-leaveVar:{[T;pc]first iasc?[$[any b:c>=0;b;'"unbounded"];last'[-1_T]%c:-1_T[;pc];0w]};
+leaveVar:{[T;pc]first iasc?[$[any b:c>0;b;'"unbounded"];last'[-1_T]%c:-1_T[;pc];0w]};
 
 / Pivot a Simplex tableau (Simplex method)
 / @param pr (Long) The leaving variable
