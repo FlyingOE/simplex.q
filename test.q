@@ -506,3 +506,16 @@ X:
     .simplex.Maximize [1 1;0]
 ;assertAnswer[1e-15;X;`obj`X!(2.;1 1.)]
 
+///////////////////////////////////////////////////////////////////////////////
+// Portfolio optimization test
+pw_index:0 55 77 204 525 687 1062 1593 1764 1909;
+a:raze{con:(2305)#0f;(con pw_index x):1f;(con x+2295):-1f;enlist con}each til count pw_index;
+a:((neg a),enlist (2295#1f),10#-1f);
+b:0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0;
+c:get`:data/c;
+LG:11#1f;
+s:`A`b`c`LG!(a;b;c;LG);
+
+S1:.simplex.answer .simplex.solveStd[a;b;neg c;0]
+S2:.simplex.Optimize{[x;y;a;b].simplex.LessEq[a y;b y] x}[;;a;b]/[.simplex.Minimize[c;0];til count b]
+(count[c]#S1[`X])~S2[`X]
