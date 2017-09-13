@@ -98,7 +98,7 @@ leaveVar:{[T;pc]first iasc?[$[any b:c>0;b;'"unbounded"];last'[-1_T]%c:-1_T[;pc];
 / Pivot a Simplex tableau (Simplex method)
 / @param pr (Long) The leaving variable
 / @param pc (Long) The entering variable
-pivot:{[T;pr;pc]?[pr=til count T;T%T[;pc];T-T[;pc]*\:T[pr]%T[pr;pc]]};
+pivot:{[T;pr;pc]@[T-T[;pc]*\:t;pr;:;t:T[pr]%T[pr;pc]]};
 
 / Retrieve the solution from a Simplex tableau
 answer:{[T]`obj`X!(
