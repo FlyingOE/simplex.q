@@ -17,9 +17,9 @@ matrixI:{"f"$x=/:x:til x};
 matrixDiag:{x*'matrixI count x};
 
 / Vector 2-norm
-vectorNorm:{sqrt sum x*x:x where not 0w=abs x};
+vectorNorm:{sqrt sum x*x:?[0w=abs x;0.;x]};
 / Matrix 2-norm
-matrixNorm:{sqrt sum(sum')x*x:x@'(where')not 0w=abs x};
+matrixNorm:{sqrt sum x*x:vectorNorm peach x};
 
 / Set optimization objective
 / @param coeff (FloatList) Coefficients in the objective function
@@ -80,7 +80,7 @@ tableau:{[A;b;c;r](A,'b),enlist c,r};
 
 / Remove {@literal M} from the bottom row of a Simplex tableau (Big M method)
 removeM:{[T]
-    M:1000*ceiling .001*max(.simplex.matrixNorm -1_/:-1_T;.simplex.vectorNorm last'[T]);
+    M:1000*ceiling .001*max(.simplex.matrixNorm -1_/:-1_T;.simplex.vectorNorm last each T);
     (-1_T),enlist sum each flip enlist[last T],neg M*T(first where@)each 1=flip T[;k:where 0w=last T]
     };
 
@@ -93,7 +93,7 @@ enterVar:{[T]first iasc -1_last T};
 
 / Identify leaving variable (Simplex method)
 / @param pc (Long) The entering variable
-leaveVar:{[T;pc]first iasc?[$[any b:c>0;b;'"unbounded"];last'[-1_T]%c:-1_T[;pc];0w]};
+leaveVar:{[T;pc]first iasc?[$[any b:0<-1_c;b;'"unbounded"];-1_last'[T]%c:T[;pc];0w]};
 
 / Pivot a Simplex tableau (Simplex method)
 / @param pr (Long) The leaving variable
