@@ -114,7 +114,8 @@ isFeasible:{[T]all 0<=answer[T]`X};
 canImprove:{[T]any 0>-1_last T};
 
 / Solve a Simplex tableau using Big M method
-solve:{pivot[x;leaveVar[x;pc];pc:enterVar x]}/[canImprove;]removeM@;
+solve:{pivot[x;leaveVar[x;pc];pc:enterVar x]}/[canImprove;]removeM
+    {if[0=system"s";-2">>> .simplex recommends multithreading mode `-s ",string[.z.c],"'"];x}@;
 
 / Solve an LP in maximization standard form ({@literal A * X <= b | maximize C * X})
 solveStd:{[A;b;c;r]solve tableau[1.*A,'matrixDiag[n#1];1.*b;-1.*c,(n:count A)#0;-1.*r]};
