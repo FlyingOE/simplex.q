@@ -7,6 +7,8 @@
 /       </ul>
 / </ul>
 / @see http://college.cengage.com/mathematics/larson/elementary_linear/4e/shared/downloads/c09s1.pdf
+///////////////////////////////////////////////////////////////////////////////
+/ This version uses "Big M" variation of Simplex method.
 \d .simplex
 
 / Construct a zero matrix or order {@code x}

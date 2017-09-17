@@ -1,6 +1,7 @@
-\l simplex.q
-
 {x set get .Q.dd[`:perf_data]x}each`a`b`c`con2
+
+///////////////////////////////////////////////////////////////////////////////
+\l simplex.q
 
 \ts X:.simplex.Optimize
         x:.simplex.Eq[con2 0;0f]
@@ -26,3 +27,16 @@
 
 o~p
 O~P
+
+///////////////////////////////////////////////////////////////////////////////
+\l simplex2.q
+
+\ts X2:.simplex.Optimize
+        x2:.simplex.Eq[con2 0;0f]
+            {[x;y;a;b].simplex.LessEq[a y;b y] x}[;;a;b]/[.simplex.Maximize[c;0];til count b]
+
+X2[`X]~P[`X]
+round:{x*floor .5+y%x};round[1e10;X2`obj]=round[1e6;P`obj]
+
+///////////////////////////////////////////////////////////////////////////////
+\

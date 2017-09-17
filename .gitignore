@@ -1,4 +1,9 @@
-src/
-
+*.pdb
 *.exe
 *.zip
+
+src/armadillo-*.*
+src/Clp-*.*
+src/SoPlex-*.*
+src/lib/armadillo-*.*
+src/lib/BLAS & LAPACK
