@@ -9,7 +9,7 @@
 / @see http://college.cengage.com/mathematics/larson/elementary_linear/4e/shared/downloads/c09s1.pdf
 ///////////////////////////////////////////////////////////////////////////////
 / This version uses COIN-OR CLP library as the underlying implementation.
-\d .simplex2
+\d .simplex
 
 DLL:.Q.dd[hsym`$system"cd"]`simplex.q;
 
