@@ -10,7 +10,7 @@
 #include "simplex.q.h"
 
 SIMPLEXQ_API K K_DECL version(K _) {
-	std::string const id("$Id: eb130c0081e3501d0d2427362e489dca6f613ed9 $");
+	std::string const id("$Id: 3c55ad290fc538332e942dc9cac1dbfbe684ce41 $");
 	return kp(const_cast<S>((id + " @ " __DATE__ " " __TIME__).c_str()));
 }
 
