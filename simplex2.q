@@ -13,6 +13,9 @@
 
 DLL:.Q.dd[hsym`$system"cd"]`simplex.q;
 
+/ Version of {@literal simplex.q.dll}
+version:DLL 2:(`version;1);
+
 / Set optimization objective
 / @param coeff (FloatList) Coefficients in the objective function
 / @param const (Float)     Constant coefficient in the objective function 

@@ -9,6 +9,11 @@
 
 #include "simplex.q.h"
 
+SIMPLEXQ_API K K_DECL version(K _) {
+	std::string const id("$Id: eb130c0081e3501d0d2427362e489dca6f613ed9 $");
+	return kp(const_cast<S>((id + " @ " __DATE__ " " __TIME__).c_str()));
+}
+
 enum OPT_DIR {
 	MINIMIZE = 1,
 	MAXIMIZE = -1

@@ -21,6 +21,8 @@
 extern "C" {
 #endif
 
+	SIMPLEXQ_API K K_DECL version(K/*NOTE: at least one argument required by `2:'*/);
+
 	SIMPLEXQ_API K K_DECL solveCpp(
 		K maximize,		//1h
 		K objective,	//9h
