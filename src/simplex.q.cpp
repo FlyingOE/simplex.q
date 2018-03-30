@@ -177,7 +177,7 @@ SIMPLEXQ_API K K_DECL solveCpp(K maximize, K objective, K bounds, K constraints)
 				}
 				else if (col == "lb") {
 					if (KF != val->t) {
-						return krr("invalid constraint lower bounds");
+						return krr("incorrect constraint lower bounds type");
 					}
 					else {
 						constraint.lb = kF(val)[r];
@@ -185,7 +185,7 @@ SIMPLEXQ_API K K_DECL solveCpp(K maximize, K objective, K bounds, K constraints)
 				}
 				else if (col == "ub") {
 					if (KF != val->t) {
-						return krr("invalid constraint upper bounds");
+						return krr("incorrect constraint upper bounds type");
 					}
 					else {
 						constraint.ub = kF(val)[r];
