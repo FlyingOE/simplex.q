@@ -11,6 +11,17 @@
 / This version uses COIN-OR CLP library as the underlying implementation.
 \d .cplx
 
+/ Get only the real component from a complex matrix.
+/ @param d (Long) Number of dimensions of the complex matrix
+/ @param m () Source matrix
+/q) .cplx.getReal[0]10f                    /==> 10f
+/q) .cplx.getReal[0]10 3f                  /==> 10f
+/q) .cplx.getReal[1]10 3f                  /==> 10 3f
+/q) .cplx.getReal[1](10f;3 4f)             /==> 10 3f
+/q) .cplx.getReal[2](1 2f;3 4f)            /==> (1 2f;3 4f)
+/q) .cplx.getReal[2]((1f;3 4f);(5 6f;7f))  /==> (1 3f;5 7f)
+getReal:{[d;m] {[d;m] $[0>=d;m 0;.z.s/:[d-1;m]] }[d]norm[d;m] };
+
 / Normalize a mixed real/complex matrix into a complex matrix.
 / @param d (Long) Number of dimensions of the mixed matrix
 / @param m () Source matrix
