@@ -4,11 +4,12 @@
 
 .svn/
 src/Clp-1.16.*/
-Win32/Debug/
-Win32/Release/
-Win32-v*-Debug/
-Win32-v*-Release/
+src/**/Win32/Debug/
+src/**/Win32/Release/
+src/**/Win32-v*-Debug/
+src/**/Win32-v*-Release/
+src/**/MSVisualStudio/*.mps
+src/**/MSVisualStudio/test*.*
 src/armadillo-*.*/
 src/SoPlex-*.*/
-src/lib/armadillo-*.*/
-src/lib/BLAS & LAPACK/
+src/lib/
