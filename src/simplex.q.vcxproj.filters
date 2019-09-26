@@ -39,4 +39,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\simplex2.q">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

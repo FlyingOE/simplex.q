@@ -35,17 +35,18 @@ ClpSimplex& createModel(ClpSimplex &model,
 	std::vector<std::pair<double, double> > const& varBounds,
 	std::vector<RowConstraint> const& constraints)
 {
-	model.resize(0, nVariables);
+	assert(nVariables <= std::numeric_limits<int>::max());
+	model.resize(0, static_cast<int>(nVariables));
 	model.setOptimizationDirection(static_cast<double>(optDirection));
 	std::vector<int> colIdx(nVariables);
-	for (size_t v = 0; v < nVariables; ++v) {
+	for (int v = 0; v < static_cast<int>(nVariables); ++v) {
 		model.setObjectiveCoefficient(v, objCoefficients[v]);
 		model.setColumnBounds(v, varBounds[v].first, varBounds[v].second);
 		colIdx[v] = v;
 	}
 	CoinBuild builder;
 	std::for_each(constraints.cbegin(), constraints.cend(), [&](RowConstraint const& constraint) {
-		builder.addRow(nVariables, &colIdx[0], constraint.coeffs, constraint.lb, constraint.ub);
+		builder.addRow(static_cast<int>(nVariables), &colIdx[0], constraint.coeffs, constraint.lb, constraint.ub);
 	});
 	model.addRows(builder);
 	return model;

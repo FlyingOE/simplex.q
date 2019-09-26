@@ -6,8 +6,12 @@
 src/Clp-1.16.*/
 src/**/Win32/Debug/
 src/**/Win32/Release/
+src/**/x64/Debug/
+src/**/x64/Release/
 src/**/Win32-v*-Debug/
 src/**/Win32-v*-Release/
+src/**/x64-v*-Debug/
+src/**/x64-v*-Release/
 src/**/MSVisualStudio/*.mps
 src/**/MSVisualStudio/test*.*
 src/armadillo-*.*/

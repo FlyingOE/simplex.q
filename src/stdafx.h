@@ -12,13 +12,13 @@
 // Windows Header Files:
 #include <windows.h>
 
-//// kdb+
-#define KXVER 3
-#include <k.h>
-#pragma comment(lib, "q.lib")
-
 //// COIN-OR CLP
 #include "ClpSimplex.hpp"
 #pragma comment(lib, "libClp.lib")
 #include "CoinBuild.hpp"
 #pragma comment(lib, "libCoinUtils.lib")
+
+//// kdb+
+#define KXVER 3
+#include <k.h>
+#pragma comment(lib, "q.lib")
