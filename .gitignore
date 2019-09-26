@@ -2,8 +2,13 @@
 *.exe
 *.zip
 
-src/armadillo-*.*
-src/Clp-*.*
-src/SoPlex-*.*
-src/lib/armadillo-*.*
-src/lib/BLAS & LAPACK
+.svn/
+src/Clp-1.16.*/
+Win32/Debug/
+Win32/Release/
+Win32-v*-Debug/
+Win32-v*-Release/
+src/armadillo-*.*/
+src/SoPlex-*.*/
+src/lib/armadillo-*.*/
+src/lib/BLAS & LAPACK/
