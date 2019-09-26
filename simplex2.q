@@ -11,7 +11,7 @@
 / This version uses COIN-OR CLP library as the underlying implementation.
 \d .simplex
 
-DLL:.Q.dd[hsym`$system"cd"]`$"simplex.q",$[.z.o~`w64;"64";""];
+DLL:hsym`$"simplex.q",$[.z.o~`w64;"64";""];
 
 / Version of {@literal simplex.q.dll}
 version:DLL 2:(`version;1);
